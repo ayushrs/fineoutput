@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body{
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vH;
+  background-color: #F5F5F5;
+  font-family: Roboto;
+}
+
+h1{
+  font-size: 40pt;
+  font-weight: 500;
+  color: #363638;
+}
+
+.container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.item {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 320px;
+  max-width: 410px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.item:hover{
+  cursor: pointer;
+}
+
+.item *{
+  transition: all 0.35s ease-in-out;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+  height: 310px;
+}
+
+.item:hover img {
+  opacity: 0;
+}
+
+.text{
+  width: 80%;
+  height: 90%;
+  position: absolute;
+  top: -100px;
+  left: 10%;
+  color: #01A2AC;
+}
+
+.text h3{
+  color: black;
+}
+
+.item:hover .text{
+  top: 20%;
+}
+
+.item:hover .button{
+  bottom: 20%;
+}
+
+.item .button{
+  position: absolute;
+  bottom: -100px;
+  left: 25%;
+  width: 50%;
+  border: 3px solid #01A2AC;
+  padding: 15px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover{
+  background-color: #01A2AC;
+  color: #F5F5F5;
+}
+
+/* Modal */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #F5F5F5;
+  margin: 5% auto;
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.scale{
+  animation: scale 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scale{
+  from{transform: scale(0);}
+  to{transform: scale(1);}
+}
+
+#img{
+  width: 100%;
+  height: auto;
+}
+
+#details{
+  padding: 25px;
+  text-align: left;
+  position: relative;
+  box-sizing: border-box;
+  border-top: 1px solid #363638;
+}
+
+#details *{
+  transition: all .3s;
+}
+
+#title{
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#details .button {
+    position: absolute;
+    width: 30%;
+    background-color: #01A2AC;
+    color: #F5F5F5;
+    text-align: center;
+    right: 25px;
+    top: 25px;
+    padding: 15px;
+}
+
+#details i{
+  position: absolute;
+  bottom: 30px;
+  right: 25px;
+  font-size: 3rem;
+  color: #01A2AC;
+}
+
+#details .button:hover,
+i:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: #363638;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    height: auto;
+  }
+
+  #details {
+    padding: 15px;
+  }
+
+  #details .button, #details i {
+    width: 40%;
+    top: 20px;
+}
+
+  #details i {
+    font-size: 2.5rem;
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .item .button {
+    width: 60%;
+  }
+}
+</style>
+<body>
+    <section>
+        <h1>Projects</h1>
+    
+        <div class="container">
+          <div class="item" id="1">
+            <img src="11.webp" alt="">
+            <div class="text">
+              <h3>Oswal soap</h3>
+              <p>OSWAL SOAP GROUP is a renowned </p>
+            </div>
+            <div class="button">Learn More</div>
+          </div>
+    
+          <div class="item" id="2">
+            <img src="poshida.png" alt="">
+            <div class="text">
+              <h3>PROJECT 2</h3>
+              <p>Short Description</p>
+            </div>
+            <div class="button">Learn More</div>
+          </div>
+    
+          <div class="item" id="3">
+            <img src="moto.webp" alt="">
+            <div class="text">
+                <h3>PROJECT 3</h3>
+              <p>Short Description</p>
+              </div>
+              <div class="button">Learn More</div>
+          </div>
+    
+          <div class="item" id="4">
+            <img src="bae.png" alt="">
+            <div class="text">
+              <h3>PROJECT 4</h3>
+              <p>Short Description</p>
+            </div>
+            <div class="button">Learn More</div>
+          </div>
+    
+          <div class="item" id="5">
+            <img src="stokes.webp" alt="">
+            <div class="text">
+              <h3>PROJECT 5</h3>
+              <p>Short Description</p>
+            </div>
+            <div class="button">Learn More</div>
+          </div>
+    
+          <div class="item" id="6">
+            <img src="tiara.png" alt="">
+            <div class="text">
+              <h3>PROJECT 6</h3>
+              <p>Short Description</p>
+            </div>
+            <div class="button">Learn More</div>
+          </div>
+      </div>
+    
+      <!-- Modal -->
+      <div id="preview" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img id="img" src="">
+          <div id="details">
+            <h3 id="title"></h3>
+            <p id="info">Some text</p>
+            <div class="button" id="live">View</div>
+              <i class="fab fa-github-square" id="github"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+<script>
+    var modalInfo = {
+  1: {
+    title: "Project 1",
+    info: "OSWAL SOAP GROUP is a renowned company engaged in the manufacturing and export of Tea, Detergent Soap, Detergent Powder, Cleaning Powder, Dish Wash Tub Soap & Bars, Dish Wash Liquid, Laundry Soap, Laundry Tub, Bath Soap(Opaque, Transparent), Assam Tea, Herbal Mehendi, Herbal hair Mehendi, Home Made Spices, Floor Cleaner, Glass Cleaner, Liquid Phenol, Liquid hand-wash, Hair Oil, Liquid Solutions and many more toiletries. Based in Pink City, Jaipur (Rajasthan), India since 1956, the company has been consistently delivering quality products for more than six decades now. It has been catering to the ever-growing demands of FMCG products from all across the globe",
+    link: "#",
+    github: "#"
+  },
+  2: {
+    title: "Project 2",
+    info: "...",
+    link: "#",
+    github: "#"
+  },
+  3: {
+    title: "Project 3",
+    info: "...",
+    link: "#",
+    github: "#"
+  },
+  4: {
+    title: "Project 4",
+    info: "....",
+    link: "#",
+    github: "#"
+  },
+  5: {
+    title: "Project 5",
+    info: "...",
+    link: "#",
+    github: "#"
+  },
+  6: {
+    title: "Project 6",
+    info: "...",
+    link: "#",
+    github: "#"
+  }
+}
+
+var modal = document.getElementById("preview");
+var modalImg = document.getElementById("img");
+var titleText = document.getElementById("title");
+var infoText = document.getElementById("info");
+var liveBtn = document.getElementById("live");
+var githubIcon = document.getElementById("github");
+
+document.querySelectorAll(".item").forEach(function(item) {
+  item.addEventListener("click", function() {
+    var id = this.id;
+    var imgSrc = this.querySelector("img").src;
+    
+    modalImg.src = imgSrc;
+    titleText.textContent = modalInfo[id].title;
+    infoText.textContent = modalInfo[id].info;
+    liveBtn.href = modalInfo[id].link;
+    githubIcon.href = modalInfo[id].github;
+    
+    modal.style.display = "block";
+    document.querySelector(".modal-content").classList.add("scale");
+  });
+});
+
+document.querySelector(".close").addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+</script>
+</body>
+</html>
